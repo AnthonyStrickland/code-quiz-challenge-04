@@ -1,15 +1,35 @@
 // get a handle on all html tags,objects,classes,identifiers
-// var welcomeScreen = document.querySelector(".welcome");
-// var timer = docmuent.querySelector(".time");
-// var questions = document.querySelector(".questionBox");
-// var start = document.querySelector("#startBtn");
-
+var welcomeScreen = document.getElementById("welcome");
+var question = document.getElementById("questionBox");
+var start = document.getElementById("startBtn"); 
+var restart = document.getElementById("restartBtn");              
+var highscore = document.querySelector(".userinit");
 var questionEl = document.getElementById("question");
 var answerbtn = document.getElementById("answer-buttons");
+var timer = document.querySelector(".time");
+var result = document.getElementById("result");
+var restartScreen = document.getElementById("restart")
 
-                // I can also use this as well var start = document.getElementById("startBtn");
-                
-// console.log everything to ensure it works
+
+
+
+
+// start timer
+var secondsLeft = 60;
+
+function startTime() {
+  var timeInterval = setInterval(function() {
+    secondsLeft--;
+    timer.textContent = secondsLeft + " left till end of quiz";
+
+    if(secondsLeft <= 0 || qInd === questions.length) {
+      clearInterval(timeInterval);
+        alert("GAME OVER");
+        reset();}
+
+    }, 1000);     
+}
+
 // create questions and answers object
 
 var questions = [{
@@ -58,19 +78,23 @@ var questions = [{
 var qInd = 0;
 var score = 0;
 
-
 // function to start the whole quiz/welcome screen
+startBtn.addEventListener("click", startQuiz)
 function startQuiz(){
-        qInd = 0;
-        score = 0 
-        startBtn.innerHTML = "Start"
-        showQuestions()
+        welcomeScreen.classList.add("hide");
+        question.classList.remove("hide");
+        showQuestions();
+        startTime();
+}
+
+// restartBtn.addEventListener("click", startQuiz)
+        
  
 // function to show questions
 function showQuestions() {
         reset ();
         var currentQuestion = questions[qInd];
-              questionEl.innerHTML = currentQuestion.que;
+        questionEl.innerHTML = currentQuestion.que;
 
         currentQuestion.ans.forEach(answer => {
                 var button = document.createElement("button");
@@ -81,16 +105,17 @@ function showQuestions() {
                 // event listner for button click
         button.addEventListener("click", function() {    
                 var ansButton = answer.isCorrect;
-           if (ansButton === true) {
-              alert("correct");
-              score++;
+        if (ansButton === true) {
+        result.innerHTML = "correct";
+       score++;
              
-          } else{
-             alert("incorrect"); }      
+        } else{
+        result.innerHTML = "incorrect"; 
+        secondsLeft = secondsLeft - 5;}      
              
            });
       });
-}
+   }
 
 // next question to come up after last question
 
@@ -101,34 +126,42 @@ function nextQuestion() {
         } else {
         showScore(); }
 
-}
+    }
         // event listner for the next question
  answerbtn.addEventListener("click", () =>{
         if (qInd < questions.length) {
                 nextQuestion();}
- }) 
-//  function to show the score
+    }) 
+
+// save answers to local storage calculate score
+        // high scores page with initials
 function showScore (){
         var finalScore = Math.round((score/6)*100);
-        alert("Your score is " + finalScore)
-}
+        var initialInput = prompt("Your score is " + finalScore + " please enter your initials")
+
+        localStorage.setItem("initials", initialInput);
+        localStorage.setItem("high-score", finalScore);
+
+    }
 //      function to reset 
 function reset() {
         while(answerbtn.firstChild){
                 answerbtn.removeChild(answerbtn.firstChild); }
+                
     }
-}
-        startQuiz();
+    
+
+   
+     
 
         
 
 
-// save answers to local storage calculate score
-        // high scores page with initials
+
 // create a timer 5 sec per question
         // make timer go down by 2 sec when answered incorrectly
 // create a game over tag
-
+//  function to show the score
 // create a restart or try again button
 
 

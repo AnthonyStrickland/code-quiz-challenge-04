@@ -2,3 +2,7 @@
 /* create fonts for answer and questions */
 /* place timer in lower right corner of page */
 /* style boxes with color and shades */
+
+.hide{
+    display:none;
+}

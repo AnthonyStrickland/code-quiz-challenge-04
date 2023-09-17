@@ -9,25 +9,42 @@
     <link rel="stylesheet" href="./04-Challenge/Assets/style.css">
 </head>
 <body>
-    <footer class="time" style="text-align:right;"></footer>
+    <h6 class="time" style="text-align:right;"><h6></h6>
+<div class="container">
+    
     <!-- create welcome page -->
-    <div class = "welcome">
-        <h1>Do You Want To Play A Game</h1>
+        <div id = "welcome">
+            <h1>Do You Want To Play A Game</h1>
         <!-- create start button quiz -->
-        <button id ="startBtn">Start</button>
-    </div>
+            <button id ="startBtn">Start</button>
+        </div>
 <!-- create question box and answer buttons -->
-    <div class = "questionBox">
+    <div id = "questionBox" class = "hide">
         <h2 id="question">Question goes here</h2>
          <div id="answer-buttons">
             <button class ="btn">Answer 1</button>
             <button class ="btn">Answer 2</button>
             <button class ="btn">Answer 3</button>
          </div>
+         <hr>
+         <p id="result"></p>
     </div>
 
+    <div id = "highScore" class = "hide">
+        <label for="initials">Initials</label>
+        <input type="text" name= "initials" id="initials" placeholder="Enter your initials"> />
 
+        <label for="high-score"> High Score:</label>
+        <input type="text" name="" id="high-score">
+    </div>
+    <div id = "restart" class = "hide">
+        <h1>Do You Want To Try Again</h1>
+    <!-- create start button quiz -->
+        <button id ="restart">Restart </button>
+    </div>
+</div>
 
+     
 <!-- link to .js file -->
 <script src="./04-Challenge/js/script.js"></script>
 </body>
