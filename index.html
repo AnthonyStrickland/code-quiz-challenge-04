@@ -18,6 +18,7 @@
         <!-- create start button quiz -->
             <button id ="startBtn">Start</button>
         </div>
+
 <!-- create question box and answer buttons -->
     <div id = "questionBox" class = "hide">
         <h2 id="question">Question goes here</h2>
@@ -30,19 +31,26 @@
          <p id="result"></p>
     </div>
 
-    <div id = "highScore" class = "hide">
-        <label for="initials">Initials</label>
-        <input type="text" name= "initials" id="initials" placeholder="Enter your initials"> />
+            <!-- High score page -->
+    <div class="hide" id="game-over">
+        <h2>All Done!</h2>
+        <p id="final-score"></p>
+        <label for="user-initials">Enter Your Initials:</label>
+        <input type="user-initials" name="user-initials" id="user-initials">
+        <button id="submit">SUBMIT</button>           
+    </div>
 
-        <label for="high-score"> High Score:</label>
-        <input type="text" name="" id="high-score">
+    <div class="hide" id="play-again">
+        <h2>High Scores</h2>
+        <label for="high-score"></label>
+        <p id="high-score"></p>
+        <button id ="resetGame">Restart </button>
     </div>
-    <div id = "restart" class = "hide">
-        <h1>Do You Want To Try Again</h1>
-    <!-- create start button quiz -->
-        <button id ="restart">Restart </button>
-    </div>
+
 </div>
+<!-- <div id = "resart" class = "hide">
+    <h6>Do You Want To Try Again</h6>
+ create start button quiz -->
 
      
 <!-- link to .js file -->

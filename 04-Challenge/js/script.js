@@ -8,14 +8,15 @@ var questionEl = document.getElementById("question");
 var answerbtn = document.getElementById("answer-buttons");
 var timer = document.querySelector(".time");
 var result = document.getElementById("result");
-var restartScreen = document.getElementById("restart")
-
-
-
-
-
+var resetGame = document.getElementById("resetGame");
+var gameOver = document.getElementById("game-over");
+var initialsInput = document.querySelector("#user-initials");
+var scoreInfo = document.querySelector("#high-score");
+var finScore = document.getElementById("final-score");
+var playAgain = document.getElementById("play-again");
+var submitBtn = document.getElementById("submit");
 // start timer
-var secondsLeft = 120;
+var secondsLeft = 60;
 
 function startTime() {
   var timeInterval = setInterval(function() {
@@ -24,10 +25,9 @@ function startTime() {
 
     if(secondsLeft <= 0 || qInd === questions.length) {
       clearInterval(timeInterval);
-        alert("GAME OVER");
         reset();}
-
-    }, 1000);     
+    }, 1000);  
+       
 }
 
 // create questions and answers object
@@ -87,7 +87,7 @@ function startQuiz(){
         startTime();
 }
 
-// restartBtn.addEventListener("click", startQuiz)
+// restartBtn.addEventListener("click", welcomeScreen)
         
  
 // function to show questions
@@ -124,7 +124,7 @@ function nextQuestion() {
         if(qInd < questions.length) {
         showQuestions();
         } else {
-        showScore(); }
+        showScore();}
 
     }
         // event listner for the next question
@@ -136,13 +136,38 @@ function nextQuestion() {
 // save answers to local storage calculate score
         // high scores page with initials
 function showScore (){
+
         var finalScore = Math.round((score/6)*100);
-        var initialInput = prompt("Your score is " + finalScore + " please enter your initials")
+        question.classList.add("hide");
+        gameOver.classList.remove("hide");
 
-        localStorage.setItem("initials", initialInput);
-        localStorage.setItem("high-score", finalScore);
+       finScore.innerHTML = "your score is " + finalScore;
+       localStorage.setItem("high-score", finalScore);
 
+        submitBtn.addEventListener("click", function(event) {
+                event.preventDefault();
+                var ints = initialsInput.value;
+                localStorage.setItem("user-initials", ints);
+                gameOver.classList.add("hide");
+                playAgain.classList.remove("hide");
+                scoreInfo.innerHTML = localStorage.getItem("user-initials") + " _ " + localStorage.getItem("high-score")
+       
+                resetGame.addEventListener("click", function(){
+                        playAgain.classList.add("hide");
+                        welcomeScreen.classList.remove("hide");        
+                    });
+      
+     });   
+       
     }
+
+    resetGame.addEventListener("click", function(){
+        playAgain.classList.add("hide");
+        welcomeScreen.classList.remove("hide"); 
+        qInd = 0
+        score = 0  
+        secondsLeft = 60;     
+    });
 //      function to reset 
 function reset() {
         while(answerbtn.firstChild){
