@@ -15,6 +15,7 @@ var scoreInfo = document.querySelector("#high-score");
 var finScore = document.getElementById("final-score");
 var playAgain = document.getElementById("play-again");
 var submitBtn = document.getElementById("submit");
+var container = document.querySelector(".container");
 // start timer
 var secondsLeft = 60;
 
@@ -114,9 +115,16 @@ function showQuestions() {
         secondsLeft = secondsLeft - 5;}      
              
            });
+           container.addEventListener("mousemove", function(){
+                
+                setTimeout(function(){
+                result.innerHTML = "";
+                }, 2000);
+           });
       });
    }
 
+   
 // next question to come up after last question
 
 function nextQuestion() {
@@ -140,6 +148,9 @@ function showScore (){
         var finalScore = Math.round((score/6)*100);
         question.classList.add("hide");
         gameOver.classList.remove("hide");
+        timer.classList.add("hide");
+        
+         
 
        finScore.innerHTML = "your score is " + finalScore;
        localStorage.setItem("high-score", finalScore);
@@ -166,9 +177,11 @@ function showScore (){
         welcomeScreen.classList.remove("hide"); 
         qInd = 0
         score = 0  
-        secondsLeft = 60;     
+        secondsLeft = 60;
+        
     });
-//      function to reset 
+
+                //      function to reset 
 function reset() {
         while(answerbtn.firstChild){
                 answerbtn.removeChild(answerbtn.firstChild); }
