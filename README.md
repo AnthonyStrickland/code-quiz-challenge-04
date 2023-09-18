@@ -16,7 +16,7 @@ click the link to open app: https://anthonystrickland.github.io/code-quiz-challe
 
 ## Credits
 
-Kathryn Perry  keperry30@icloud.com
+https://github.com/kittykatt210?tab=repositories
 https://www.w3schools.com/
 UTSA Bootcamp
 http://rabbit.eng.miami.edu/info/htmlchars.html
