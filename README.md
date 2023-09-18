@@ -1,16 +1,24 @@
-# code-quiz-challenge-04
+# 04 Web APIs: Code Quiz
 
-        <!-- currentQuestion.ans.forEach(answer => {
-                var button = document.createElement("button");
-                button.innerHTML = answer.text;
-                button.classList.add("btn");
-                answerbtn.appendChild(button);
-        })
-                button.addEventListener("click",function(){
-                if (answers === "true") {
-                alert("correct"); 
-                score++;
-                } else {
-                   alert("incorrect");
 
-                } -->
+
+## Description
+
+for Module 4 challenge I built a quiz about javascript.  The quiz is 6 questions long multiple choice where if you get a question wrong then the time goes down a few seconds.  at the end of the quiz you can save your initials and have the high score.    
+
+
+## Installation
+
+click the link to open app: https://anthonystrickland.github.io/code-quiz-challenge-04/
+
+## Usage
+
+
+## Credits
+
+Kathryn Perry  keperry30@icloud.com
+https://www.w3schools.com/
+UTSA Bootcamp
+http://rabbit.eng.miami.edu/info/htmlchars.html
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
+https://www.freecodecamp.org/news/what-does-the-hashrocket-symbol-mean-in-javascript/#:~:text=The%20%22%3D%3E%22%20symbol%2C,syntax%20than%20traditional%20function%20expressions

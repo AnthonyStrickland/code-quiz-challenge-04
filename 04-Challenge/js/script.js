@@ -88,9 +88,7 @@ function startQuiz(){
         startTime();
 }
 
-// restartBtn.addEventListener("click", welcomeScreen)
-        
- 
+     
 // function to show questions
 function showQuestions() {
         reset ();
@@ -187,19 +185,3 @@ function reset() {
                 answerbtn.removeChild(answerbtn.firstChild); }
                 
     }
-    
-
-   
-     
-
-        
-
-
-
-// create a timer 5 sec per question
-        // make timer go down by 2 sec when answered incorrectly
-// create a game over tag
-//  function to show the score
-// create a restart or try again button
-
-
