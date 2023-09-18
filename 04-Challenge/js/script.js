@@ -15,7 +15,7 @@ var restartScreen = document.getElementById("restart")
 
 
 // start timer
-var secondsLeft = 60;
+var secondsLeft = 120;
 
 function startTime() {
   var timeInterval = setInterval(function() {
